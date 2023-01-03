@@ -7,15 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		767FE77A2960BD7D003934E3 /* String+date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767FE7792960BD7D003934E3 /* String+date.swift */; };
+		767FE77C2960C5B9003934E3 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767FE77B2960C5B9003934E3 /* MovieListViewModel.swift */; };
+		7684AB3B2961AC74000DD83E /* MovieMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684AB392961AC74000DD83E /* MovieMO+CoreDataClass.swift */; };
+		7684AB3C2961AC74000DD83E /* MovieMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684AB3A2961AC74000DD83E /* MovieMO+CoreDataProperties.swift */; };
+		7684AB3F2961DBEA000DD83E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684AB3E2961DBEA000DD83E /* AppError.swift */; };
+		7684AB412961E03F000DD83E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684AB402961E03F000DD83E /* ViewModel.swift */; };
+		7684AB432961E2E9000DD83E /* MovieListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684AB422961E2E9000DD83E /* MovieListItemViewModel.swift */; };
+		7684AB4529629868000DD83E /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684AB4429629868000DD83E /* MovieListView.swift */; };
+		7684AB4729629A7B000DD83E /* MovieListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684AB4629629A7B000DD83E /* MovieListItemView.swift */; };
+		7684AB4A29631074000DD83E /* Publisher+result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684AB4929631074000DD83E /* Publisher+result.swift */; };
+		7684AB4C29640AC2000DD83E /* MovieDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684AB4B29640AC2000DD83E /* MovieDetailUseCase.swift */; };
 		76F6CAB7295DB990009D780F /* QSTMovieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6CAB6295DB990009D780F /* QSTMovieApp.swift */; };
 		76F6CAB9295DB990009D780F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6CAB8295DB990009D780F /* ContentView.swift */; };
 		76F6CABB295DB994009D780F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76F6CABA295DB994009D780F /* Assets.xcassets */; };
 		76F6CABE295DB994009D780F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76F6CABD295DB994009D780F /* Preview Assets.xcassets */; };
-		76F6CAC0295DB994009D780F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6CABF295DB994009D780F /* Persistence.swift */; };
+		76F6CAC0295DB994009D780F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6CABF295DB994009D780F /* CoreDataStack.swift */; };
 		76F6CAC3295DB994009D780F /* QSTMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76F6CAC1295DB994009D780F /* QSTMovie.xcdatamodeld */; };
 		76F6CACD295DB994009D780F /* QSTMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6CACC295DB994009D780F /* QSTMovieTests.swift */; };
 		76F6CAD7295DB994009D780F /* QSTMovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6CAD6295DB994009D780F /* QSTMovieUITests.swift */; };
 		76F6CAD9295DB994009D780F /* QSTMovieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6CAD8295DB994009D780F /* QSTMovieUITestsLaunchTests.swift */; };
+		76F6CAEB295DBDAC009D780F /* DBHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6CAEA295DBDAC009D780F /* DBHandlerProtocol.swift */; };
+		76F6CAF8295EAFAD009D780F /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6CAF7295EAFAD009D780F /* MovieRepository.swift */; };
+		76F6CAFA295EAFDB009D780F /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6CAF9295EAFDB009D780F /* MovieModel.swift */; };
+		76F6CB00295EC05C009D780F /* MovieListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6CAFF295EC05C009D780F /* MovieListUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,18 +51,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		767FE7792960BD7D003934E3 /* String+date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+date.swift"; sourceTree = "<group>"; };
+		767FE77B2960C5B9003934E3 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
+		7684AB392961AC74000DD83E /* MovieMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7684AB3A2961AC74000DD83E /* MovieMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7684AB3E2961DBEA000DD83E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		7684AB402961E03F000DD83E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		7684AB422961E2E9000DD83E /* MovieListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListItemViewModel.swift; sourceTree = "<group>"; };
+		7684AB4429629868000DD83E /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
+		7684AB4629629A7B000DD83E /* MovieListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListItemView.swift; sourceTree = "<group>"; };
+		7684AB4929631074000DD83E /* Publisher+result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+result.swift"; sourceTree = "<group>"; };
+		7684AB4B29640AC2000DD83E /* MovieDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailUseCase.swift; sourceTree = "<group>"; };
 		76F6CAB3295DB990009D780F /* QSTMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSTMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76F6CAB6295DB990009D780F /* QSTMovieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTMovieApp.swift; sourceTree = "<group>"; };
 		76F6CAB8295DB990009D780F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		76F6CABA295DB994009D780F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76F6CABD295DB994009D780F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		76F6CABF295DB994009D780F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		76F6CABF295DB994009D780F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		76F6CAC2295DB994009D780F /* QSTMovie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QSTMovie.xcdatamodel; sourceTree = "<group>"; };
 		76F6CAC8295DB994009D780F /* QSTMovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QSTMovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76F6CACC295DB994009D780F /* QSTMovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTMovieTests.swift; sourceTree = "<group>"; };
 		76F6CAD2295DB994009D780F /* QSTMovieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QSTMovieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76F6CAD6295DB994009D780F /* QSTMovieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTMovieUITests.swift; sourceTree = "<group>"; };
 		76F6CAD8295DB994009D780F /* QSTMovieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTMovieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		76F6CAEA295DBDAC009D780F /* DBHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHandlerProtocol.swift; sourceTree = "<group>"; };
+		76F6CAF7295EAFAD009D780F /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
+		76F6CAF9295EAFDB009D780F /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		76F6CAFF295EC05C009D780F /* MovieListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +105,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		767FE7772960BD58003934E3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				767FE7792960BD7D003934E3 /* String+date.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		7684AB3D2961C9A2000DD83E /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				7684AB3E2961DBEA000DD83E /* AppError.swift */,
+				7684AB402961E03F000DD83E /* ViewModel.swift */,
+				7684AB4929631074000DD83E /* Publisher+result.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		7684AB482962E982000DD83E /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				7684AB4629629A7B000DD83E /* MovieListItemView.swift */,
+				7684AB422961E2E9000DD83E /* MovieListItemViewModel.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
 		76F6CAAA295DB990009D780F = {
 			isa = PBXGroup;
 			children = (
@@ -98,10 +155,16 @@
 		76F6CAB5295DB990009D780F /* QSTMovie */ = {
 			isa = PBXGroup;
 			children = (
+				76F6CAE5295DB9DB009D780F /* Screen */,
+				76F6CAE6295DB9FB009D780F /* UseCase */,
+				76F6CAE7295DBA09009D780F /* Repository */,
+				76F6CAE9295DBA38009D780F /* Database */,
+				76F6CAE8295DBA1D009D780F /* Model */,
+				767FE7772960BD58003934E3 /* Extension */,
+				7684AB3D2961C9A2000DD83E /* Support */,
 				76F6CAB6295DB990009D780F /* QSTMovieApp.swift */,
 				76F6CAB8295DB990009D780F /* ContentView.swift */,
 				76F6CABA295DB994009D780F /* Assets.xcassets */,
-				76F6CABF295DB994009D780F /* Persistence.swift */,
 				76F6CAC1295DB994009D780F /* QSTMovie.xcdatamodeld */,
 				76F6CABC295DB994009D780F /* Preview Content */,
 			);
@@ -131,6 +194,76 @@
 				76F6CAD8295DB994009D780F /* QSTMovieUITestsLaunchTests.swift */,
 			);
 			path = QSTMovieUITests;
+			sourceTree = "<group>";
+		};
+		76F6CAE5295DB9DB009D780F /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				76F6CAFD295EC039009D780F /* MovieList */,
+				76F6CAFE295EC040009D780F /* MovieDetail */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		76F6CAE6295DB9FB009D780F /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				76F6CAFF295EC05C009D780F /* MovieListUseCase.swift */,
+				7684AB4B29640AC2000DD83E /* MovieDetailUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		76F6CAE7295DBA09009D780F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				76F6CAF7295EAFAD009D780F /* MovieRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		76F6CAE8295DBA1D009D780F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				76F6CAF9295EAFDB009D780F /* MovieModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		76F6CAE9295DBA38009D780F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				76F6CAF0295EAA71009D780F /* Model */,
+				76F6CAEA295DBDAC009D780F /* DBHandlerProtocol.swift */,
+				76F6CABF295DB994009D780F /* CoreDataStack.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		76F6CAF0295EAA71009D780F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7684AB392961AC74000DD83E /* MovieMO+CoreDataClass.swift */,
+				7684AB3A2961AC74000DD83E /* MovieMO+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		76F6CAFD295EC039009D780F /* MovieList */ = {
+			isa = PBXGroup;
+			children = (
+				7684AB4429629868000DD83E /* MovieListView.swift */,
+				767FE77B2960C5B9003934E3 /* MovieListViewModel.swift */,
+				7684AB482962E982000DD83E /* Item */,
+			);
+			path = MovieList;
+			sourceTree = "<group>";
+		};
+		76F6CAFE295EC040009D780F /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,10 +396,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76F6CAC0295DB994009D780F /* Persistence.swift in Sources */,
+				767FE77A2960BD7D003934E3 /* String+date.swift in Sources */,
+				76F6CAFA295EAFDB009D780F /* MovieModel.swift in Sources */,
+				76F6CAF8295EAFAD009D780F /* MovieRepository.swift in Sources */,
+				7684AB4C29640AC2000DD83E /* MovieDetailUseCase.swift in Sources */,
+				7684AB4529629868000DD83E /* MovieListView.swift in Sources */,
+				76F6CAC0295DB994009D780F /* CoreDataStack.swift in Sources */,
+				767FE77C2960C5B9003934E3 /* MovieListViewModel.swift in Sources */,
+				7684AB3F2961DBEA000DD83E /* AppError.swift in Sources */,
+				7684AB3C2961AC74000DD83E /* MovieMO+CoreDataProperties.swift in Sources */,
 				76F6CAC3295DB994009D780F /* QSTMovie.xcdatamodeld in Sources */,
 				76F6CAB9295DB990009D780F /* ContentView.swift in Sources */,
+				7684AB412961E03F000DD83E /* ViewModel.swift in Sources */,
+				7684AB4729629A7B000DD83E /* MovieListItemView.swift in Sources */,
+				7684AB4A29631074000DD83E /* Publisher+result.swift in Sources */,
 				76F6CAB7295DB990009D780F /* QSTMovieApp.swift in Sources */,
+				76F6CB00295EC05C009D780F /* MovieListUseCase.swift in Sources */,
+				7684AB3B2961AC74000DD83E /* MovieMO+CoreDataClass.swift in Sources */,
+				7684AB432961E2E9000DD83E /* MovieListItemViewModel.swift in Sources */,
+				76F6CAEB295DBDAC009D780F /* DBHandlerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
