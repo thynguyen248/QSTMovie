@@ -26,8 +26,8 @@ struct MovieListItemView: View {
                     .font(.system(size: 14.0, weight: .regular))
                 if itemViewModel.inWatchList {
                     Text("ON MY WATCHLIST")
-                        .foregroundColor(.primary)
-                        .font(.system(size: 14.0, weight: .medium))
+                        .foregroundColor(.primary.opacity(0.7))
+                        .font(.system(size: 12.0, weight: .medium))
                         .padding(.top)
                 }
             }

@@ -36,7 +36,7 @@ struct MovieDetailHeaderView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .font(.system(size: 16))
                         .padding()
-                        .foregroundColor(.primary.opacity(0.6))
+                        .foregroundColor(.primary.opacity(0.7))
                 }
                 .background(.gray.opacity(0.5))
                 .cornerRadius(25)
@@ -48,7 +48,6 @@ struct MovieDetailHeaderView: View {
                         .foregroundColor(.black)
                 }
                 .overlay(RoundedRectangle(cornerRadius: 25).stroke(.black, lineWidth: 1))
-                
             }
         }
         .padding(.top)
