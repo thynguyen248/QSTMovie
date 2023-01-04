@@ -7,14 +7,14 @@
 
 import Combine
 import Foundation
+import CoreData
 
-class MovieListViewModel: ObservableObject {
+final class MovieListViewModel: ObservableObject {
     private let movieListUseCase: MovieListUseCaseInterface
     
     //Input
     let loadTrigger = PassthroughSubject<Void, Never>()
-    let sortTypeTrigger = CurrentValueSubject<SortType, Never>(.releasedDate)
-    let addToWatchListTrigger = CurrentValueSubject<String?, Never>(nil)
+    let sortTypeTrigger = CurrentValueSubject<SortType, Never>(.title)
     let selectMovieTrigger = CurrentValueSubject<String?, Never>(nil)
     
     //Output
@@ -28,7 +28,8 @@ class MovieListViewModel: ObservableObject {
     }
     
     private lazy var movieModelsPublisher: AnyPublisher<Result<[MovieModel], AppError>, Never> = {
-        return Publishers.CombineLatest(loadTrigger, sortTypeTrigger)
+        return Publishers.CombineLatest(loadTrigger,
+                                        sortTypeTrigger)
             .flatMap { [movieListUseCase] (_, sortType) in
                 return movieListUseCase.getMovieList(sortType: sortType)
                     .asResult()
@@ -40,15 +41,6 @@ class MovieListViewModel: ObservableObject {
     
     private func binding() {
         movieModelsPublisher
-            .map { result -> AppError? in
-                if case .failure(let error) = result {
-                    return error
-                }
-                return nil
-            }
-            .assign(to: &$error)
-        
-        movieModelsPublisher
             .map { result -> [MovieListItemViewModel] in
                 if case .success(let models) = result {
                     return models.map { MovieListItemViewModel(movieModel: $0) }
@@ -56,5 +48,14 @@ class MovieListViewModel: ObservableObject {
                 return []
             }
             .assign(to: &$dataSource)
+        
+        movieModelsPublisher
+            .map { result -> AppError? in
+                if case .failure(let error) = result {
+                    return error
+                }
+                return nil
+            }
+            .assign(to: &$error)
     }
 }

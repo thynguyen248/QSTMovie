@@ -12,6 +12,7 @@ struct MovieListItemViewModel: Identifiable {
     let title: String
     let subTitle: String
     let inWatchList: Bool
+    let model: MovieModel
     
     var id: String {
         return "\(itemId), \(inWatchList)"
@@ -21,8 +22,17 @@ struct MovieListItemViewModel: Identifiable {
 extension MovieListItemViewModel {
     init(movieModel: MovieModel) {
         itemId = movieModel.identifier
-        title = "\(movieModel.title ?? "") (\(movieModel.releasedDate?.convertToString() ?? ""))"
-        subTitle = "\(movieModel.duration ?? "") - \(movieModel.genre ?? "")"
+        var yearText: String?
+        if let year = movieModel.releasedDate?.year {
+            yearText = "(\(year))"
+        }
+        title = [movieModel.title, yearText]
+            .compactMap { $0 }
+            .joined(separator: " ")
+        subTitle = [movieModel.genre, movieModel.duration]
+            .compactMap { $0 }
+            .joined(separator: " - ")
         inWatchList = movieModel.inWatchList ?? false
+        model = movieModel
     }
 }

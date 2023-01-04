@@ -11,7 +11,7 @@ protocol MovieListUseCaseInterface {
     func getMovieList(sortType: SortType) -> AnyPublisher<[MovieModel], AppError>
 }
 
-class MovieListUseCase: MovieListUseCaseInterface {
+final class MovieListUseCase: MovieListUseCaseInterface {
     private let movieRepository: MovieRepositoryInterface
     
     init(movieRepository: MovieRepositoryInterface = MovieRepository()) {

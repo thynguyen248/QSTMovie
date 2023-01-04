@@ -11,22 +11,6 @@ import Combine
 class CoreDataStack {
     static let shared = CoreDataStack()
     
-//    static var preview: CoreDataStack = {
-//        let result = CoreDataStack(inMemory: true)
-//        let viewContext = result.container.viewContext
-//        for _ in 0..<10 {
-//            let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
-//        }
-//        do {
-//            try viewContext.save()
-//        } catch {
-//            let nsError = error as NSError
-//            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//        }
-//        return result
-//    }()
-    
     private let container: NSPersistentContainer
     
     init(inMemory: Bool = false) {
@@ -62,7 +46,7 @@ extension CoreDataStack {
                                    limit: Int? = nil)
     -> AnyPublisher<[T], AppError> {
         return Future() { [weak self] promise in
-            let request = objectType.fetchRequest()
+            let request = NSFetchRequest<T>(entityName: String(describing: T.self))
             request.predicate = predicate
             if let sortDescriptor = sortDescriptor {
                 request.sortDescriptors = [sortDescriptor]
@@ -71,10 +55,8 @@ extension CoreDataStack {
                 request.fetchLimit = limit
             }
             let asynchronousFetchRequest = NSAsynchronousFetchRequest(fetchRequest: request) { result in
-                guard let result = result.finalResult as? [T] else { return }
-                DispatchQueue.main.async {
-                    promise(.success(result))
-                }
+                let result = result.finalResult ?? []
+                promise(.success(result))
             }
             do {
                 try self?.mainContext.execute(asynchronousFetchRequest)
@@ -102,34 +84,6 @@ extension CoreDataStack {
             }
         }
         .eraseToAnyPublisher()
-    }
-    
-    func publisher<T: NSManagedObject>(for managedObject: T,
-                                       in context: NSManagedObjectContext,
-                                       changeTypes: [ChangeType]) -> AnyPublisher<(object: T?, type: ChangeType), Never> {
-        
-        let notification = NSManagedObjectContext.didMergeChangesObjectIDsNotification
-        return NotificationCenter.default.publisher(for: notification, object: context)
-            .compactMap({ notification in
-                for type in changeTypes {
-                    if let object = self.managedObject(with: managedObject.objectID, changeType: type,
-                                                       from: notification, in: context) as? T {
-                        return (object, type)
-                    }
-                }
-                
-                return nil
-            })
-            .eraseToAnyPublisher()
-    }
-    
-    func managedObject(with id: NSManagedObjectID, changeType: ChangeType,
-                       from notification: Notification, in context: NSManagedObjectContext) -> NSManagedObject? {
-      guard let objects = notification.userInfo?[changeType.userInfoKey] as? Set<NSManagedObjectID>,
-            objects.contains(id) else {
-        return nil
-      }
-      return context.object(with: id)
     }
 }
 
@@ -167,8 +121,9 @@ extension CoreDataStack: DBHandlerProtocol {
     func addRemoveFromWatchList(movieId: String, add: Bool) -> AnyPublisher<Bool, AppError> {
         return fetch(objectType: MovieMO.self, predicate: NSPredicate(format: "identifier = %@", movieId))
             .flatMap { [weak self] movieMOs -> AnyPublisher<Bool, AppError> in
+                guard let self = self else { return Empty().eraseToAnyPublisher() }
                 movieMOs.first?.inWatchList = add
-                return self?.save(objectType: MovieMO.self, objects: movieMOs) ?? Empty().eraseToAnyPublisher()
+                return self.save(objectType: MovieMO.self, objects: movieMOs)
             }
             .eraseToAnyPublisher()
     }

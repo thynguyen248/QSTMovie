@@ -11,13 +11,20 @@ import Combine
 struct MovieListView: View {
     @ObservedObject var viewModel: MovieListViewModel
     @State private var showingOptions = false
-    @State private var selection = "None"
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(viewModel.dataSource) { itemViewModel in
-                    MovieListItemView(itemViewModel: itemViewModel)
+                    ZStack {
+                        MovieListItemView(itemViewModel: itemViewModel)
+                        NavigationLink(destination: NavigationLazyView(
+                            MovieDetailView(viewModel: MovieDetailViewModel(movieModel: itemViewModel.model))
+                        )) {
+                            EmptyView()
+                        }
+                        .frame(width: 0).opacity(0)
+                    }
                 }
             }
             .listStyle(PlainListStyle())
@@ -26,7 +33,7 @@ struct MovieListView: View {
                 Button("Sort") {
                     showingOptions = true
                 }
-                .confirmationDialog("Select sort type", isPresented: $showingOptions, titleVisibility: .visible) {
+                .confirmationDialog("", isPresented: $showingOptions, titleVisibility: .hidden) {
                     ForEach(viewModel.sortTypes, id: \.self) { sortType in
                         Button(sortType.rawValue) {
                             viewModel.sortTypeTrigger.send(sortType)
@@ -34,11 +41,22 @@ struct MovieListView: View {
                     }
                 }
             })
+            .onAppear {
+                viewModel.loadTrigger.send(())
+            }
+            .errorAlert(isPresented: Binding<Bool>(
+                get: { viewModel.error != nil },
+                set: { _ in }
+            ), error: viewModel.error)
         }
+        .accentColor(.black)
         .navigationViewStyle(StackNavigationViewStyle())
-        
-        .onAppear {
-            viewModel.loadTrigger.send(())
-        }
+    }
+}
+
+struct MovieListView_Previews: PreviewProvider {
+    static var previews: some View {
+        let viewModel = MovieListViewModel()
+        MovieListView(viewModel: viewModel)
     }
 }

@@ -8,19 +8,18 @@
 import Foundation
 
 extension String {
-    func convertToDate() -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM yyyy"
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.timeZone = .current
-        return dateFormatter.date(from: self)
+    func toDate(formatter: DateFormatter) -> Date? {
+        return formatter.date(from: self)
     }
 }
 
 extension Date {
-    func convertToString() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM yyyy"
-        return dateFormatter.string(from: self)
+    func toString(formatter: DateFormatter) -> String {
+        return formatter.string(from: self)
+    }
+    
+    var year: Int? {
+        let components = Calendar.current.dateComponents([.year], from: self)
+        return components.year
     }
 }
